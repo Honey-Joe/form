@@ -111,10 +111,19 @@
             alert("Password must contains 8 characters")
         }
         let c=$("#pass2").val()
-        if(b!==c){
+        
+        if(b!=c){
             alert("Password doesn't match")
         }
-        
+        var count=0
+        for(var i in c){
+            
+            if(c[i]==c[i].toLowerCase()){
+                count++
+            }
+            
+        }
+        console.log(count)
         
 
     })
