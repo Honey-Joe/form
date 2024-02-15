@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -26,36 +25,36 @@
         <div id="form">
             <form class="d-flex flex-column align-items-center" id="form">
                 <div class="form form-floating my-4 w-75 mx-5">
-                    <input type="text" name="" id="üser" class="form-control" placeholder="Username">
-                    <label for="" class="form-label">Username</label>
-                </div>
-                <div class="form form-floating my-4 w-75 mx-5">
-                    <input type="password" name="" id="pass" class="form-control" placeholder="Password">
-                    <label for="" class="form-label">Password</label>
-                </div>
-                <div class="info" style="text-align: center;">
-                    <a href="#">Forgot Password?</a>
-                    <p>DIdin't have an account <a href="#" id="link">Register</a></p>
-                </div>
-                <div class="d-flex justify-content-end gap-2 mb-3">
-                    <input class="btn btn-outline-primary" type="submit">
-                    <input type="reset" class="btn btn-light">
-                </div>
-            </form>
-        </div>
-        
-        <div id="form2">
-            <form class="d-flex flex-column align-items-center" id="">
-                <div class="form form-floating my-4 w-75 mx-5">
-                    <input type="text" name="" id="" class="form-control" placeholder="Email">
-                    <label for="" class="form-label">Email</label>
-                </div>
-                <div class="form form-floating my-4 w-75 mx-5">
                     <input type="text" name="" id="user" class="form-control" placeholder="Username">
                     <label for="" class="form-label">Username</label>
                 </div>
                 <div class="form form-floating my-4 w-75 mx-5">
-                    <input type="password" name="pass" id="" class="form-control" placeholder="Password">
+                    <input type="password" name="pass" id="password" class="form-control" placeholder="Password">
+                    <label for="" class="form-label">Password</label>
+                </div>
+                <div class="info" style="text-align: center;">
+                    <a href="#">Forgot Password?</a>
+                    <p>Didin't have an account <a href="#" id="link">Register</a></p>
+                </div>
+                <div class="d-flex justify-content-end gap-2 mb-3">
+                    <input class="btn btn-outline-primary" type="submit" id="sub">
+                    <input type="reset" class="btn btn-light">
+                </div>
+            </form>
+        </div>
+
+        <div id="form2">
+            <form class="d-flex flex-column align-items-center" id="">
+                <div class="form form-floating my-4 w-75 mx-5">
+                    <input type="text" name="" id="mail" class="form-control" placeholder="Email">
+                    <label for="" class="form-label">Email</label>
+                </div>
+                <div class="form form-floating my-4 w-75 mx-5">
+                    <input type="text" name="" id="user1" class="form-control" placeholder="Username">
+                    <label for="" class="form-label">Username</label>
+                </div>
+                <div class="form form-floating my-4 w-75 mx-5">
+                    <input type="password" name="pass1" id="pass1" class="form-control" placeholder="Password">
                     <label for="" class="form-label">Password</label>
                 </div>
                 <div class="form form-floating my-4 w-75 mx-5">
@@ -63,17 +62,63 @@
                     <label for="" class="form-label">Password(again)</label>
                 </div>
                 <div class="d-flex justify-content-end gap-2 mb-3">
-                    <button class="btn btn-outline-primary" type="submit">submit</button>
+                    <input class="btn btn-outline-primary" type="submit" id="sub1">
                     <input type="reset" class="btn btn-light">
                 </div>
             </form>
         </div>
-        
-        
     </div>
     
 </body>
 <script>
+    $("#sub").on("click",function(){
+        let a=$("#user").val()
+        if(a==""){
+            alert("Please enter the username")
+        }
+        else if(a.length<8){
+            alert("Username should be or above 8 charcters")
+        }
+        let b=$("#password").val()
+        if(b==""){
+            alert("Please enter the password")
+        }
+        else if(b.length<8){
+            alert("Password must contains 8 characters")
+        }
+    })
+    $("#sub1").on("click",function(){
+        let d=$("#mail").val()
+        let reg=/[a-z0-9]+@[a-z0-9]/
+        if(d==""){
+            alert("Please Enter your Email address")
+        }
+        else if(!(d.match(reg))){
+            alert("Enter valid email address")
+        }
+        let a=$("#user1").val()
+        if(a==""){
+            alert("Please Enter the username")
+        }
+        else if(a.length<8){
+            alert("Username should be or above 8 characters")
+        }
+        let b=$("#pass1").val()
+        if(b==""){
+            alert("Please enter the password")
+        }
+        else if(b.length<8){
+            alert("Password must contains 8 characters")
+        }
+        let c=$("#pass2").val()
+        if(b!==c){
+            alert("Password doesn't match")
+        }
+        
+        
+
+    })
+    
     
     $("#form2").hide()
     $("#log").on("click",function(){
@@ -91,11 +136,6 @@
         $("#form").hide()
         
     })
-    // let a= $("#user").val();
-    // if(a.length<8){
-    //     alert("Username above 8 chracters")
-    // }
-    
 </script>
 
 </html>
